@@ -83,7 +83,7 @@ export class Profile extends Component {
 
     return (
       <DocumentTitle title={`${username}'s Profile | Pokédex Tracker`}>
-        <div className='profile-container'>
+        <div className="profile-container">
           <NavComponent />
           <ReloadComponent />
           <div className="profile">
