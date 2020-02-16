@@ -16,7 +16,8 @@ body {
   font-family: $font-primary;
 }
 
-#root {
+#root,
+.root {
   @include flexbox();
   @include flex-direction(column);
 
@@ -33,6 +34,117 @@ body {
     @include flex-direction(column);
 
     min-height: 0;
+  }
+
+  &.night-mode {
+    background-color: $night-mode;
+    color: $gray-medium;
+
+    .profile {
+      background-color: $night-mode;
+    }
+
+    nav {
+      background-color: $night-mode-light;
+
+      a {
+        color: $gray-medium;
+
+        &:hover {
+          background-color: $night-mode-dark;
+        }
+      }
+
+      .dropdown {
+        &:hover > a {
+          background-color: $night-mode-dark;
+        }
+
+        ul li a {
+          border-color: black;
+          background-color: $night-mode-dark;
+
+          &:hover {
+            background-color: lighten($night-mode-dark, 4%);
+          }
+        }
+      }
+    }
+
+    .footer {
+      background-color: $night-mode-dark;
+    }
+
+    .main-footer {
+      background-color: $night-mode-light;
+
+      .fa {
+        color: black;
+      }
+    }
+
+    .home-container {
+      background: $night-mode url('/pattern-night.png') repeat center center;
+      background-size: 500px 250px;
+    }
+
+    .dex-search-bar {
+      background-color: $night-mode;
+      border-bottom: 1px solid $night-mode-dark;
+    }
+
+    .share {
+      background-color: $night-mode;
+      border-color: black;
+      color: white;
+
+      &::after {
+        border-color: black transparent transparent transparent;
+      }
+    }
+
+    .label {
+      background-color: black;
+    }
+
+    .box-container,
+    .set-captured,
+    .set-captured-mobile,
+    .set-info {
+      border-color: black;
+    }
+
+    .pokemon {
+      &.captured {
+        background-color: $night-mode-accent;
+        color: black;
+
+        .set-captured,
+        .set-captured-mobile,
+        .set-info {
+          border-color: $night-mode-accent-dark;
+        }
+      }
+
+      &:not(.empty):not(.disabled):hover:not(.viewing) .set-captured {
+        border-color: $night-mode-accent-dark;
+      }
+    }
+
+    .form-control {
+      background-color: $night-mode;
+      color: white;
+    }
+
+    .progress-outer {
+      background-color: $night-mode-accent-dark;
+      border-color: $night-mode-accent;
+      color: black;
+    }
+
+    .progress-inner {
+      background-color: $night-mode-accent;
+    }
   }
 }
 
@@ -658,6 +770,16 @@ reload div {
     margin-top: 0;
     text-align: center;
     font-size: 14px;
+  }
+
+  &.night-mode {
+    background-color: $night-mode;
+    color: $gray-medium;
+
+    .form-control {
+      background-color: $night-mode;
+      color: white;
+    }
   }
 }
 

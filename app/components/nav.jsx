@@ -5,6 +5,7 @@ import { connect }   from 'react-redux';
 import { ReactGA }                  from '../utils/analytics';
 import { retrieveUser }             from '../actions/user';
 import { setSessionUser, setToken } from '../actions/session';
+import { toggleNightMode }          from '../actions/utils';
 
 export class Nav extends Component {
 
@@ -30,6 +31,12 @@ export class Nav extends Component {
       })
       .catch(() => this.setState({ ...this.state, loading: false }));
     }
+  }
+
+  toggleNightMode = () => {
+    const { toggleNightMode, nightMode } = this.props;
+
+    toggleNightMode(!nightMode);
   }
 
   signOut = () => {
@@ -65,6 +72,7 @@ export class Nav extends Component {
               </div>
               <li><Link to={`/u/${session.username}`}><i className="fa fa-user" /> Profile</Link></li>
               <li><Link to="/account"><i className="fa fa-cog" /> Account Settings</Link></li>
+              <li><a onClick={this.toggleNightMode}><i className="fa fa-adjust" /> Toggle Night Mode</a></li>
               <li><a onClick={this.signOut}><i className="fa fa-sign-out" /> Sign Out</a></li>
             </ul>
           </div>
@@ -83,15 +91,16 @@ export class Nav extends Component {
   }
 }
 
-function mapStateToProps ({ session, sessionUser }) {
-  return { session, user: sessionUser };
+function mapStateToProps ({ session, sessionUser, nightMode }) {
+  return { session, user: sessionUser, nightMode };
 }
 
 function mapDispatchToProps (dispatch) {
   return {
     clearToken: () => dispatch(setToken(null)),
     retrieveUser: (username) => dispatch(retrieveUser(username)),
-    setSessionUser: (user) => dispatch(setSessionUser(user))
+    setSessionUser: (user) => dispatch(setSessionUser(user)),
+    toggleNightMode: (nightMode) => dispatch(toggleNightMode(nightMode))
   };
 }
 

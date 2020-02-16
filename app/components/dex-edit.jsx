@@ -130,7 +130,7 @@ export class DexEdit extends Component {
   }
 
   render () {
-    const { dex, games, gamesById, isOpen, session } = this.props;
+    const { dex, games, gamesById, isOpen, session, nightMode } = this.props;
     const { confirmingDelete, confirmingEdit, error, game, regional, url } = this.state;
 
     let dexDelete = null;
@@ -146,7 +146,7 @@ export class DexEdit extends Component {
     }
 
     return (
-      <Modal className="modal" overlayClassName="modal-overlay" isOpen={isOpen} onRequestClose={() => this.onRequestClose()} contentLabel="Edit Dex">
+      <Modal className={`modal ${nightMode ? 'night-mode' : ''}`} overlayClassName="modal-overlay" isOpen={isOpen} onRequestClose={() => this.onRequestClose()} contentLabel="Edit Dex">
         <div className="dex-delete-container">
           {dexDelete}
         </div>
@@ -211,8 +211,8 @@ export class DexEdit extends Component {
 
 }
 
-function mapStateToProps ({ games, gamesById, session }) {
-  return { games, gamesById, session };
+function mapStateToProps ({ games, gamesById, session, nightMode }) {
+  return { games, gamesById, session, nightMode };
 }
 
 function mapDispatchToProps (dispatch) {

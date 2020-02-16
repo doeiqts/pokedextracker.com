@@ -1,3 +1,4 @@
+import { connect }                       from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore }          from 'react-router-redux';
 
@@ -13,16 +14,24 @@ import { logPageView }       from '../utils/analytics';
 
 const history = syncHistoryWithStore(browserHistory, Store);
 
-export function AppComponent () {
+export function App ({ nightMode }) {
   return (
-    <Router history={history} onUpdate={logPageView}>
-      <Route path='/' component={HomeComponent} />
-      <Route path='/login' component={LoginComponent} />
-      <Route path='/register' component={RegisterComponent} />
-      <Route path='/account' component={AccountComponent} />
-      <Route path='/u/:username' component={ProfileComponent} />
-      <Route path='/u/:username/:slug' component={TrackerComponent} />
-      <Route path='*' component={NotFoundComponent} />
-    </Router>
+    <div className={`root ${nightMode ? 'night-mode' : ''}`}>
+      <Router history={history} onUpdate={logPageView}>
+        <Route path='/' component={HomeComponent} />
+        <Route path='/login' component={LoginComponent} />
+        <Route path='/register' component={RegisterComponent} />
+        <Route path='/account' component={AccountComponent} />
+        <Route path='/u/:username' component={ProfileComponent} />
+        <Route path='/u/:username/:slug' component={TrackerComponent} />
+        <Route path='*' component={NotFoundComponent} />
+      </Router>
+    </div>
   );
 }
+
+function mapStateToProps ({ nightMode }) {
+  return { nightMode };
+}
+
+export const AppComponent = connect(mapStateToProps)(App);

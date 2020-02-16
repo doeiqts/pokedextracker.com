@@ -13,5 +13,11 @@ $gray-light: #f1f1f1;
 $gray-medium: #d2d2d2;
 $gray-dark: #ababab;
 
+$night-mode: #1f1f1f;
+$night-mode-dark: darken($night-mode, 7%);
+$night-mode-light: lighten($night-mode, 5%);
+$night-mode-accent: #caac1e;
+$night-mode-accent-dark: darken($night-mode-accent, 7%);
+
 $pokemon-box-size: 110px;
 $tooltip-width: 120px;

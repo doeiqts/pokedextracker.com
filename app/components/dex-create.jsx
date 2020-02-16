@@ -84,7 +84,7 @@ export class DexCreate extends Component {
   }
 
   render () {
-    const { games, gamesById, isOpen, session } = this.props;
+    const { games, gamesById, isOpen, session, nightMode } = this.props;
     const { error, game, regional, url } = this.state;
 
     if (!isOpen || !games) {
@@ -92,7 +92,7 @@ export class DexCreate extends Component {
     }
 
     return (
-      <Modal className="modal" overlayClassName="modal-overlay" isOpen={isOpen} onRequestClose={this.onRequestClose} contentLabel="Create a New Dex">
+      <Modal className={`modal ${nightMode ? 'night-mode' : ''}`} overlayClassName="modal-overlay" isOpen={isOpen} onRequestClose={this.onRequestClose} contentLabel="Create a New Dex">
         <div className="form" ref={(c) => this._form = c}>
           <h1>Create New Dex</h1>
           <form onSubmit={this.onSubmit} className="form-column">
@@ -150,8 +150,8 @@ export class DexCreate extends Component {
 
 }
 
-function mapStateToProps ({ games, gamesById, session }) {
-  return { games, gamesById, session };
+function mapStateToProps ({ games, gamesById, session, nightMode }) {
+  return { games, gamesById, session, nightMode };
 }
 
 function mapDispatchToProps (dispatch) {
