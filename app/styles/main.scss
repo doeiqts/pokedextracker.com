@@ -38,34 +38,84 @@ body {
 
   &.night-mode {
     background-color: $night-mode;
-    color: $gray-medium;
+    color: white;
 
     .profile {
       background-color: $night-mode;
     }
 
+    a {
+      color: $night-mode-primary;
+
+      &:hover {
+        color: $night-mode-primary-dark;
+      }
+    }
+
     nav {
-      background-color: $night-mode-light;
+      background-color: $night-mode-01dp;
 
       a {
-        color: $gray-medium;
+        color: white;
 
         &:hover {
-          background-color: $night-mode-dark;
+          background-color: $night-mode-02dp;
         }
       }
 
       .dropdown {
         &:hover > a {
-          background-color: $night-mode-dark;
+          background-color: $night-mode-02dp;
         }
 
         ul li a {
-          border-color: black;
-          background-color: $night-mode-dark;
+          border-color: $night-mode-01dp;
+          background-color: $night-mode-02dp;
 
           &:hover {
-            background-color: lighten($night-mode-dark, 4%);
+            background-color: $night-mode-04dp;
+          }
+        }
+      }
+    }
+
+    header {
+      h1 {
+        color: white;
+      }
+    }
+
+    .btn {
+      &.btn-blue {
+        background-color: $night-mode-primary;
+        color: $night-mode;
+      }
+
+      &:hover {
+        &.btn-blue {
+          background-color: $night-mode-primary-dark;
+        }
+      }
+    }
+
+    .loading {
+      color: $night-mode-primary;
+    }
+
+    .alert {
+      background-color: $night-mode-02dp;
+      color: white;
+
+      &.alert-muted {
+        background-color: $night-mode-01dp;
+        color: white;
+        border-color: $night-mode-01dp;
+
+        a {
+        color: $night-mode-primary;
+
+          &:hover {
+            color: $night-mode-primary-dark;
           }
         }
       }
@@ -104,46 +154,110 @@ body {
     }
 
     .label {
-      background-color: black;
+      background-color: $night-mode-02dp;
+    }
+
+    .dex {
+      .scroll-up {
+        background-color: $night-mode-04dp;
+      }
     }
 
     .box-container,
     .set-captured,
     .set-captured-mobile,
     .set-info {
-      border-color: black;
+      border-color: $night-mode-01dp;
+    }
+
+    .set-info {
+      .fa-info {
+        border-color: $night-mode-primary;
+        color: $night-mode-primary;
+      }
     }
 
     .pokemon {
       &.captured {
-        background-color: $night-mode-accent;
-        color: black;
+        background-color: $night-mode-04dp;
 
         .set-captured,
         .set-captured-mobile,
         .set-info {
-          border-color: $night-mode-accent-dark;
+          border-color: $night-mode-02dp;
         }
       }
 
-      &:not(.empty):not(.disabled):hover:not(.viewing) .set-captured {
-        border-color: $night-mode-accent-dark;
+      &:not(.empty):not(.disabled):hover {
+        .set-info {
+          &:hover {
+            .fa-info {
+              border-color: $night-mode-primary-dark;
+              color: $night-mode-primary-dark;
+            }
+          }
+        }
+
+        &:not(.viewing) {
+          .set-captured {
+            background-color: $night-mode-01dp;
+            border-color: $night-mode-02dp;
+          }
+        }
       }
     }
 
     .form-control {
-      background-color: $night-mode;
+      background-color: $night-mode-01dp;
+      border-color: $night-mode-01dp;
       color: white;
     }
 
+    .dex-search-bar {
+      .form-group {
+        .fa-search {
+          color: white;
+        }
+      }
+    }
+
     .progress-outer {
-      background-color: $night-mode-accent-dark;
-      border-color: $night-mode-accent;
-      color: black;
+      background-color: $night-mode-01dp;
+      border-color: $night-mode-01dp;
+      color: white;
     }
 
     .progress-inner {
-      background-color: $night-mode-accent;
+      background-color: $night-mode-04dp;
+    }
+
+    .info {
+      .info-collapse {
+        background-color: $night-mode-01dp;
+      }
+
+      .info-main {
+        background-color: $night-mode-02dp;
+
+        .info-header,
+        .info-locations,
+        .info-evolutions,
+        .info-footer {
+          background-color: $night-mode-02dp;
+          border-color: $night-mode-01dp;
+        }
+
+        .info-footer {
+          a {
+            background-color: $night-mode-02dp;
+            border-color: $night-mode-01dp;
+
+            &:hover {
+              background-color: $night-mode-04dp;
+            }
+          }
+        }
+      }
     }
   }
 }
