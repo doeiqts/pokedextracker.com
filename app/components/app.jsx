@@ -14,18 +14,20 @@ import { logPageView }       from '../utils/analytics';
 
 const history = syncHistoryWithStore(browserHistory, Store);
 
+const routes = [
+  { path: '/', component: HomeComponent },
+  { path: '/login', component: LoginComponent },
+  { path: '/register', component: RegisterComponent },
+  { path: '/account', component: AccountComponent },
+  { path: '/u/:username', component: ProfileComponent },
+  { path: '/u/:username/:slug', component: TrackerComponent },
+  { path: '*', component: NotFoundComponent },
+];
+
 export function App ({ nightMode }) {
   return (
     <div className={`root ${nightMode ? 'night-mode' : ''}`}>
-      <Router history={history} onUpdate={logPageView}>
-        <Route path='/' component={HomeComponent} />
-        <Route path='/login' component={LoginComponent} />
-        <Route path='/register' component={RegisterComponent} />
-        <Route path='/account' component={AccountComponent} />
-        <Route path='/u/:username' component={ProfileComponent} />
-        <Route path='/u/:username/:slug' component={TrackerComponent} />
-        <Route path='*' component={NotFoundComponent} />
-      </Router>
+      <Router history={history} onUpdate={logPageView} routes={routes} />
     </div>
   );
 }
