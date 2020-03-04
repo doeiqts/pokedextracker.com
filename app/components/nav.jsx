@@ -91,16 +91,16 @@ export class Nav extends Component {
   }
 }
 
-function mapStateToProps ({ session, sessionUser, nightMode }) {
-  return { session, user: sessionUser, nightMode };
+function mapStateToProps ({ nightMode, session, sessionUser }) {
+  return { nightMode, session, user: sessionUser };
 }
 
 function mapDispatchToProps (dispatch) {
   return {
     clearToken: () => dispatch(setToken(null)),
     retrieveUser: (username) => dispatch(retrieveUser(username)),
-    setSessionUser: (user) => dispatch(setSessionUser(user)),
-    setNightMode: (nightMode) => dispatch(setNightMode(nightMode))
+    setNightMode: (nightMode) => dispatch(setNightMode(nightMode)),
+    setSessionUser: (user) => dispatch(setSessionUser(user))
   };
 }
 

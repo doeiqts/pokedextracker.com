@@ -130,7 +130,7 @@ export class DexEdit extends Component {
   }
 
   render () {
-    const { dex, games, gamesById, isOpen, session, nightMode } = this.props;
+    const { dex, games, gamesById, isOpen, nightMode, session } = this.props;
     const { confirmingDelete, confirmingEdit, error, game, regional, url } = this.state;
 
     let dexDelete = null;
@@ -211,8 +211,8 @@ export class DexEdit extends Component {
 
 }
 
-function mapStateToProps ({ games, gamesById, session, nightMode }) {
-  return { games, gamesById, session, nightMode };
+function mapStateToProps ({ games, gamesById, nightMode, session }) {
+  return { games, gamesById, nightMode, session };
 }
 
 function mapDispatchToProps (dispatch) {

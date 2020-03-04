@@ -84,7 +84,7 @@ export class DexCreate extends Component {
   }
 
   render () {
-    const { games, gamesById, isOpen, session, nightMode } = this.props;
+    const { games, gamesById, isOpen, nightMode, session } = this.props;
     const { error, game, regional, url } = this.state;
 
     if (!isOpen || !games) {
@@ -150,8 +150,8 @@ export class DexCreate extends Component {
 
 }
 
-function mapStateToProps ({ games, gamesById, session, nightMode }) {
-  return { games, gamesById, session, nightMode };
+function mapStateToProps ({ games, gamesById, nightMode, session }) {
+  return { games, gamesById, nightMode, session };
 }
 
 function mapDispatchToProps (dispatch) {
