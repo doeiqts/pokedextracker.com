@@ -5,7 +5,7 @@ import { connect }   from 'react-redux';
 import { ReactGA }                  from '../utils/analytics';
 import { retrieveUser }             from '../actions/user';
 import { setSessionUser, setToken } from '../actions/session';
-import { toggleNightMode }          from '../actions/utils';
+import { setNightMode }             from '../actions/utils';
 
 export class Nav extends Component {
 
@@ -34,9 +34,9 @@ export class Nav extends Component {
   }
 
   toggleNightMode = () => {
-    const { toggleNightMode, nightMode } = this.props;
+    const { setNightMode, nightMode } = this.props;
 
-    toggleNightMode(!nightMode);
+    setNightMode(!nightMode);
   }
 
   signOut = () => {
@@ -100,7 +100,7 @@ function mapDispatchToProps (dispatch) {
     clearToken: () => dispatch(setToken(null)),
     retrieveUser: (username) => dispatch(retrieveUser(username)),
     setSessionUser: (user) => dispatch(setSessionUser(user)),
-    toggleNightMode: (nightMode) => dispatch(toggleNightMode(nightMode))
+    setNightMode: (nightMode) => dispatch(setNightMode(nightMode))
   };
 }
 
