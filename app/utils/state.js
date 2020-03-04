@@ -17,9 +17,9 @@ export function tokenToUser (token) {
 export function loadState () {
   const nightMode = localStorage.getItem('nightMode') === 'true' || undefined;
   const notif20200209 = localStorage.getItem('notif-2020.02.09') === 'true' || undefined;
+  const token = localStorage.getItem('token');
   const session = tokenToUser(token);
   const showInfo = localStorage.getItem('showInfo') === 'true' || undefined;
-  const token = localStorage.getItem('token');
 
   return { nightMode, notification: notif20200209, session, showInfo, token };
 }

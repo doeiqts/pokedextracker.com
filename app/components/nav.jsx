@@ -63,6 +63,7 @@ export class Nav extends Component {
       return (
         <nav>
           <Link to="/">Pokédex Tracker</Link>
+          <a onClick={this.toggleNightMode}><i className="fa fa-adjust" /></a>
           <a href="https://www.patreon.com/pokedextracker" target="_blank" rel="noopener noreferrer">Patreon</a>
           <div className="dropdown">
             <a href="#">{session.username} <i className="fa fa-caret-down" /></a>
@@ -72,7 +73,6 @@ export class Nav extends Component {
               </div>
               <li><Link to={`/u/${session.username}`}><i className="fa fa-user" /> Profile</Link></li>
               <li><Link to="/account"><i className="fa fa-cog" /> Account Settings</Link></li>
-              <li><a onClick={this.toggleNightMode}><i className="fa fa-adjust" /> Toggle Night Mode</a></li>
               <li><a onClick={this.signOut}><i className="fa fa-sign-out" /> Sign Out</a></li>
             </ul>
           </div>
@@ -83,6 +83,7 @@ export class Nav extends Component {
     return (
       <nav>
         <Link to="/">Pokédex Tracker</Link>
+        <a onClick={this.toggleNightMode}><i className="fa fa-adjust" /></a>
         <a href="https://www.patreon.com/pokedextracker" target="_blank" rel="noopener noreferrer">Patreon</a>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
