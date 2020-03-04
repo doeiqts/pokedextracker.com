@@ -1,6 +1,6 @@
-import { connect }                       from 'react-redux';
-import { Router, Route, browserHistory } from 'react-router';
-import { syncHistoryWithStore }          from 'react-router-redux';
+import { connect }                from 'react-redux';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore }   from 'react-router-redux';
 
 import { AccountComponent }  from './account';
 import { HomeComponent }     from './home';
@@ -21,7 +21,7 @@ const routes = [
   { path: '/account', component: AccountComponent },
   { path: '/u/:username', component: ProfileComponent },
   { path: '/u/:username/:slug', component: TrackerComponent },
-  { path: '*', component: NotFoundComponent },
+  { path: '*', component: NotFoundComponent }
 ];
 
 export function App ({ nightMode }) {
