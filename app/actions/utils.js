@@ -1,8 +1,8 @@
 import fetch from 'isomorphic-fetch';
 
-export const SET_NOTIFICATION  = 'SET_NOTIFICATION';
-export const SET_RELOAD        = 'SET_RELOAD';
-export const SET_NIGHT_MODE = 'SET_NIGHT_MODE';
+export const SET_NOTIFICATION = 'SET_NOTIFICATION';
+export const SET_RELOAD       = 'SET_RELOAD';
+export const SET_NIGHT_MODE   = 'SET_NIGHT_MODE';
 
 let VERSION;
 
