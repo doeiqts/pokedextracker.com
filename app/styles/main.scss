@@ -82,6 +82,18 @@ nav {
     .fa {
       margin-left: 3px;
     }
+
+    &.tooltip {
+      .fa {
+        margin-left: 0;
+      }
+
+      .tooltip-text {
+        font-size: 10px;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+    }
   }
 
   .dropdown {
@@ -520,7 +532,6 @@ select {
 
   .fa {
     font-size: 11px;
-    color: $brand-secondary;
   }
 
   .tooltip-text {
@@ -553,6 +564,17 @@ select {
 
   &:hover .tooltip-text {
     visibility: visible;
+  }
+
+  &.tooltip-below .tooltip-text {
+    top: 47px;
+    bottom: auto;
+
+    &::after {
+      bottom: 100%;
+      top: auto;
+      border-color: transparent transparent $brand-secondary transparent;
+    }
   }
 }
 

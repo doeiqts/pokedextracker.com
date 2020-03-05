@@ -48,7 +48,7 @@ export class Nav extends Component {
   }
 
   render () {
-    const { session, user } = this.props;
+    const { session, user, nightMode } = this.props;
     const { loading } = this.state;
 
     if (loading) {
@@ -63,7 +63,10 @@ export class Nav extends Component {
       return (
         <nav>
           <Link to="/">Pokédex Tracker</Link>
-          <a onClick={this.toggleNightMode}><i className="fa fa-adjust" /></a>
+          <a onClick={this.toggleNightMode} className="tooltip tooltip-below">
+            <i className="fa fa-adjust" />
+            <span className="tooltip-text">Night Mode {nightMode ? 'Off' : 'On'}</span>
+          </a>
           <a href="https://www.patreon.com/pokedextracker" target="_blank" rel="noopener noreferrer">Patreon</a>
           <div className="dropdown">
             <a href="#">{session.username} <i className="fa fa-caret-down" /></a>
@@ -83,7 +86,10 @@ export class Nav extends Component {
     return (
       <nav>
         <Link to="/">Pokédex Tracker</Link>
-        <a onClick={this.toggleNightMode}><i className="fa fa-adjust" /></a>
+        <a onClick={this.toggleNightMode} className="tooltip tooltip-below">
+          <i className="fa fa-adjust" />
+          <span className="tooltip-text">Night Mode {nightMode ? 'Off' : 'On'}</span>
+        </a>
         <a href="https://www.patreon.com/pokedextracker" target="_blank" rel="noopener noreferrer">Patreon</a>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
